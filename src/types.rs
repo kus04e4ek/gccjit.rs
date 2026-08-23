@@ -240,6 +240,13 @@ impl<'ctx> Type<'ctx> {
         })
     }
 
+    #[track_caller]
+    pub fn make_vector(self, num_units: u64) -> Type<'ctx> {
+        with_lib_handle(&self, |lib| unsafe {
+            from_ptr(lib.gcc_jit_type_get_vector(get_ptr(&self), num_units as _))
+        })
+    }
+
     #[cfg(feature = "master")]
     pub fn set_addressable(&self) {
         with_lib(self, |lib| unsafe {
