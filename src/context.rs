@@ -1447,6 +1447,8 @@ mod tests {
 
 #[derive(Clone, Copy)]
 pub enum CType {
+    Void,
+    VoidPtr,
     Bool,
     Char,
     UChar,
@@ -1485,6 +1487,8 @@ impl CType {
         use gccjit_sys::gcc_jit_types::*;
 
         match self {
+            Void => GCC_JIT_TYPE_VOID,
+            VoidPtr => GCC_JIT_TYPE_VOID_PTR,
             Bool => GCC_JIT_TYPE_BOOL,
             Char => GCC_JIT_TYPE_CHAR,
             UChar => GCC_JIT_TYPE_UNSIGNED_CHAR,
