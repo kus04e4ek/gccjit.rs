@@ -533,14 +533,6 @@ impl<'ctx> Context<'ctx> {
         })
     }
 
-    #[track_caller]
-    pub fn new_vector_type<'a>(&'a self, ty: types::Type<'a>, num_units: u64) -> types::Type<'a> {
-        with_lib_handle(self, |lib| unsafe {
-            let ptr = lib.gcc_jit_type_get_vector(types::get_ptr(&ty), num_units as _);
-            types::from_ptr(ptr)
-        })
-    }
-
     /// Constructs a new struct type with the given name, optional source location,
     /// and a list of fields. The returned struct is concrete and new fields cannot
     /// be added to it.
