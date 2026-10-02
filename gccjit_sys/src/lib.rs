@@ -31,6 +31,7 @@ pub enum gcc_jit_extended_asm {}
 pub enum gcc_jit_target_info {}
 
 #[repr(C)]
+#[derive(Clone, Copy, PartialEq, Eq)]
 pub enum gcc_jit_tls_model {
     GCC_JIT_TLS_MODEL_NONE,
     GCC_JIT_TLS_MODEL_GLOBAL_DYNAMIC,
@@ -40,6 +41,7 @@ pub enum gcc_jit_tls_model {
 }
 
 #[repr(C)]
+#[derive(Clone, Copy, PartialEq, Eq)]
 pub enum gcc_jit_str_option {
     GCC_JIT_STR_OPTION_PROGNAME,
     GCC_JIT_STR_OPTION_SPECIAL_CHARS_IN_FUNC_NAMES,
@@ -47,12 +49,14 @@ pub enum gcc_jit_str_option {
 }
 
 #[repr(C)]
+#[derive(Clone, Copy, PartialEq, Eq)]
 pub enum gcc_jit_int_option {
     GCC_JIT_INT_OPTION_OPTIMIZATION_LEVEL,
     GCC_JIT_NUM_INT_OPTIONS,
 }
 
 #[repr(C)]
+#[derive(Clone, Copy, PartialEq, Eq)]
 pub enum gcc_jit_bool_option {
     GCC_JIT_BOOL_OPTION_DEBUGINFO,
     GCC_JIT_BOOL_OPTION_DUMP_INITIAL_TREE,
@@ -66,6 +70,7 @@ pub enum gcc_jit_bool_option {
 }
 
 #[repr(C)]
+#[derive(Clone, Copy, PartialEq, Eq)]
 pub enum gcc_jit_output_kind {
     GCC_JIT_OUTPUT_KIND_ASSEMBLER,
     GCC_JIT_OUTPUT_KIND_OBJECT_FILE,
@@ -74,6 +79,7 @@ pub enum gcc_jit_output_kind {
 }
 
 #[repr(C)]
+#[derive(Clone, Copy, PartialEq, Eq)]
 pub enum gcc_jit_types {
     GCC_JIT_TYPE_VOID,
     /* "void *". */
@@ -135,6 +141,7 @@ pub enum gcc_jit_types {
 }
 
 #[repr(C)]
+#[derive(Clone, Copy, PartialEq, Eq)]
 pub enum gcc_jit_function_kind {
     /* Function is defined by the client code and visible
     by name outside of the JIT. */
@@ -157,6 +164,7 @@ pub enum gcc_jit_function_kind {
 }
 
 #[repr(C)]
+#[derive(Clone, Copy, PartialEq, Eq)]
 pub enum gcc_jit_global_kind {
     /* Global is defined by the client code and visible
     by name outside of this JIT context via gcc_jit_result_get_global. */
@@ -171,6 +179,7 @@ pub enum gcc_jit_global_kind {
 }
 
 #[repr(C)]
+#[derive(Clone, Copy, PartialEq, Eq)]
 pub enum gcc_jit_unary_op {
     /* Negate an arithmetic value; analogous to:
     -(EXPR)
@@ -192,6 +201,7 @@ pub enum gcc_jit_unary_op {
 }
 
 #[repr(C)]
+#[derive(Clone, Copy, PartialEq, Eq)]
 pub enum gcc_jit_binary_op {
     /* Addition of arithmetic values; analogous to:
     (EXPR_A) + (EXPR_B)
@@ -248,6 +258,7 @@ pub enum gcc_jit_binary_op {
 }
 
 #[repr(C)]
+#[derive(Clone, Copy, PartialEq, Eq)]
 pub enum gcc_jit_comparison {
     /* (EXPR_A) == (EXPR_B). */
     GCC_JIT_COMPARISON_EQ,
@@ -265,6 +276,7 @@ pub enum gcc_jit_comparison {
 
 #[cfg(feature = "master")]
 #[repr(C)]
+#[derive(Clone, Copy, PartialEq, Eq)]
 pub enum gcc_jit_fn_attribute {
     GCC_JIT_FN_ATTRIBUTE_ALIAS,
     GCC_JIT_FN_ATTRIBUTE_ALWAYS_INLINE,
@@ -301,6 +313,7 @@ pub enum gcc_jit_fn_attribute {
 
 #[cfg(feature = "master")]
 #[repr(C)]
+#[derive(Clone, Copy, PartialEq, Eq)]
 pub enum gcc_jit_variable_attribute {
     GCC_JIT_VARIABLE_ATTRIBUTE_VISIBILITY,
     GCC_JIT_VARIABLE_ATTRIBUTE_WEAK,
@@ -313,6 +326,7 @@ pub enum gcc_jit_variable_attribute {
 
 #[cfg(feature = "master")]
 #[repr(C)]
+#[derive(Clone, Copy, PartialEq, Eq)]
 pub enum gcc_jit_type_attribute {
     GCC_JIT_TYPE_ATTRIBUTE_ALIGNED,
     GCC_JIT_TYPE_ATTRIBUTE_MAY_ALIAS,
